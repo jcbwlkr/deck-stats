@@ -12,8 +12,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 
+	"github.com/jcbwlkr/deck-stats/internal/domains/users"
 	"github.com/jcbwlkr/deck-stats/internal/services"
-	"github.com/jcbwlkr/deck-stats/internal/services/users"
 )
 
 type Moxfield interface {

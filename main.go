@@ -10,9 +10,9 @@ import (
 
 	"github.com/jcbwlkr/deck-stats/internal/database"
 	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
+	"github.com/jcbwlkr/deck-stats/internal/domains/users"
 	"github.com/jcbwlkr/deck-stats/internal/handlers"
 	"github.com/jcbwlkr/deck-stats/internal/moxfield"
-	"github.com/jcbwlkr/deck-stats/internal/services/users"
 )
 
 func main() {
