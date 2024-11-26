@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.13-alpine
+    ports:
+      - 5999:5432
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=deck-stats
+      - POSTGRES_USER=deck-stats
