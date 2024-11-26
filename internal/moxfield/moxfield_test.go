@@ -10,7 +10,9 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/jcbwlkr/deck-stats/internal/magic"
+
+	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
+	"github.com/jcbwlkr/deck-stats/internal/services"
 )
 
 func TestClientListMyDecks(t *testing.T) {
@@ -65,7 +67,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	vialSmasher := magic.Deck{
 		Name:          "1,000 Smashed Vials",
-		Service:       ServiceName,
+		Service:       services.Moxfield,
 		ServiceID:     "CZ0EOEAF0Ue1wZQRUNARZw",
 		URL:           "https://www.moxfield.com/decks/CZ0EOEAF0Ue1wZQRUNARZw",
 		ColorIdentity: magic.Grixis,
@@ -97,7 +99,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	cats := magic.Deck{
 		Name:          "Cats!",
-		Service:       ServiceName,
+		Service:       services.Moxfield,
 		ServiceID:     "ryBvdOgMCEqkKKpbNVd7tQ",
 		URL:           "https://www.moxfield.com/decks/ryBvdOgMCEqkKKpbNVd7tQ",
 		ColorIdentity: magic.Selesnya,
@@ -126,7 +128,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	poison := magic.Deck{
 		Name:          "Drink your Poison",
-		Service:       ServiceName,
+		Service:       services.Moxfield,
 		ServiceID:     "NM5x9FZ6cEGEEfx8RSU5mQ",
 		URL:           "https://www.moxfield.com/decks/NM5x9FZ6cEGEEfx8RSU5mQ",
 		ColorIdentity: magic.Simic,
@@ -157,7 +159,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	winota := magic.Deck{
 		Name:          "Winota Ryder",
-		Service:       ServiceName,
+		Service:       services.Moxfield,
 		ServiceID:     "H7Es1cn9y0qJVkT8_2A-Zw",
 		URL:           "https://www.moxfield.com/decks/H7Es1cn9y0qJVkT8_2A-Zw",
 		ColorIdentity: magic.Boros,

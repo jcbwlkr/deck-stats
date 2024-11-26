@@ -1,4 +1,4 @@
-package decks
+package magic
 
 import (
 	"context"
@@ -12,19 +12,23 @@ import (
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/jcbwlkr/deck-stats/internal/magic"
-	"github.com/jcbwlkr/deck-stats/internal/moxfield"
+	"github.com/jcbwlkr/deck-stats/internal/services"
 	"github.com/jcbwlkr/deck-stats/internal/services/users"
 )
+
+type Moxfield interface {
+	ListMyDecks(ctx context.Context, token string) ([]Deck, error)
+	AddDeckDetails(ctx context.Context, token string, d *Deck) error
+}
 
 type Service struct {
 	db *sqlx.DB
 	us *users.Service
-	mc *moxfield.Client
+	mc Moxfield
 	wg sync.WaitGroup
 }
 
-func NewService(db *sqlx.DB, us *users.Service, mc *moxfield.Client) *Service {
+func NewService(db *sqlx.DB, us *users.Service, mc Moxfield) *Service {
 	return &Service{db: db, us: us, mc: mc, wg: sync.WaitGroup{}}
 }
 
@@ -50,7 +54,7 @@ func (s *Service) RefreshDecks(ctx context.Context, user users.User) error {
 			defer close(result) // In case of panic, let other goroutine terminate
 
 			switch account.Service {
-			case moxfield.ServiceName:
+			case services.Moxfield:
 				result <- s.refreshMoxfield(ctx, log, user, account)
 			default:
 				result <- errors.New("unknown service for refresh")
@@ -122,11 +126,11 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	for _, moxDeck := range moxfieldDecks {
 
 		// Look for this deck in our db results
-		i := slices.IndexFunc(existingDecks, func(d magic.Deck) bool {
+		i := slices.IndexFunc(existingDecks, func(d Deck) bool {
 			return d.ServiceID == moxDeck.ServiceID
 		})
 
-		var deck *magic.Deck
+		var deck *Deck
 		if i >= 0 {
 			deck = &existingDecks[i]
 			log = log.With("id", deck.ID)
@@ -174,7 +178,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	return nil
 }
 
-func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User, service string) ([]magic.Deck, error) {
+func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User, service string) ([]Deck, error) {
 
 	const q = `
 	SELECT
@@ -193,12 +197,12 @@ func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User
 	WHERE user_id = $1
 		AND service = $2`
 
-	decks := []magic.Deck{}
+	decks := []Deck{}
 	err := s.db.SelectContext(ctx, &decks, q, user.ID, service)
 	return decks, err
 }
 
-func (s *Service) InsertDeck(ctx context.Context, deck magic.Deck) error {
+func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 
 	const q = `
 	INSERT INTO decks
@@ -235,7 +239,7 @@ func (s *Service) InsertDeck(ctx context.Context, deck magic.Deck) error {
 	return err
 }
 
-func (s *Service) UpdateDeck(ctx context.Context, deck magic.Deck) error {
+func (s *Service) UpdateDeck(ctx context.Context, deck Deck) error {
 	const q = `
 	UPDATE decks SET
 		name = :name,

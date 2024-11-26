@@ -8,11 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jcbwlkr/deck-stats/internal/magic"
-)
-
-const (
-	ServiceName = "moxfield"
+	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
+	"github.com/jcbwlkr/deck-stats/internal/services"
 )
 
 type Client struct {
@@ -75,7 +72,7 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 	for _, deck := range data.Decks {
 		d := magic.Deck{
 			Name:      deck.Name,
-			Service:   ServiceName,
+			Service:   services.Moxfield,
 			ServiceID: deck.PublicID,
 			URL:       deck.PublicURL,
 			Folder: magic.Folder{

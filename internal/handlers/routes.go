@@ -3,10 +3,10 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/jcbwlkr/deck-stats/internal/services/decks"
+	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
 )
 
-func App(svc *decks.Service) http.Handler {
+func App(svc *magic.Service) http.Handler {
 	mux := http.NewServeMux()
 
 	/*

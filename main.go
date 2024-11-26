@@ -9,9 +9,9 @@ import (
 	"github.com/kelseyhightower/envconfig"
 
 	"github.com/jcbwlkr/deck-stats/internal/database"
+	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
 	"github.com/jcbwlkr/deck-stats/internal/handlers"
 	"github.com/jcbwlkr/deck-stats/internal/moxfield"
-	"github.com/jcbwlkr/deck-stats/internal/services/decks"
 	"github.com/jcbwlkr/deck-stats/internal/services/users"
 )
 
@@ -51,10 +51,10 @@ func run() error {
 
 	mc := moxfield.NewClient(1 * time.Second)
 	userService := users.NewService(db)
-	deckService := decks.NewService(db, userService, mc)
-	defer deckService.Wait()
+	magicService := magic.NewService(db, userService, mc)
+	defer magicService.Wait()
 
-	app := handlers.App(deckService)
+	app := handlers.App(magicService)
 
 	// TODO(jlw) graceful shutdown
 

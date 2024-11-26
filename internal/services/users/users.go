@@ -36,6 +36,8 @@ func NewService(db *sqlx.DB) *Service {
 	return &Service{db: db}
 }
 
+//func (s *Service) RegisterUser(ctx context.Context,
+
 func (s *Service) UpdateAccount(ctx context.Context, account Account) error {
 	const q = `
 	UPDATE user_accounts SET
