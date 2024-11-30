@@ -18,7 +18,7 @@ CREATE TABLE user_accounts (
   refresh_started_at TIMESTAMP DEFAULT NULL,
   refresh_active_at TIMESTAMP DEFAULT NULL,
   refresh_completed_at TIMESTAMP DEFAULT NULL,
-  refresh_status TIMESTAMP DEFAULT NULL
+  refresh_status TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE decks (

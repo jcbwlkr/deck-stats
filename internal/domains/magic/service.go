@@ -36,78 +36,75 @@ func (s *Service) Wait() {
 	s.wg.Wait()
 }
 
-func (s *Service) RefreshDecks(ctx context.Context, user users.User) error {
+func (s *Service) RefreshDecks(user users.User, account users.Account) {
 
-	for _, account := range user.Accounts {
-		// Make a new context for these goroutines.
-		ctx := context.Background()
+	// Make a new context for these goroutines.
+	ctx := context.Background()
 
-		log := slog.With("user", user.ID, "service", account.Service)
+	log := slog.With("user", user.ID, "service", account.Service)
 
-		// Channel for these two goroutines to talk to each other.
-		result := make(chan error)
+	// Channel for these two goroutines to talk to each other.
+	result := make(chan error)
 
-		// Goroutine that updates decks for this service.
-		s.wg.Add(1)
-		go func(account users.Account) {
-			defer s.wg.Done()
-			defer close(result) // In case of panic, let other goroutine terminate
+	// Goroutine that updates decks for this service.
+	s.wg.Add(1)
+	go func(account users.Account) {
+		defer s.wg.Done()
+		defer close(result) // In case of panic, let other goroutine terminate
 
-			switch account.Service {
-			case services.Moxfield:
-				result <- s.refreshMoxfield(ctx, log, user, account)
-			default:
-				result <- errors.New("unknown service for refresh")
-			}
-		}(account)
+		switch account.Service {
+		case services.Moxfield:
+			result <- s.refreshMoxfield(ctx, log, user, account)
+		default:
+			result <- errors.New("unknown service for refresh")
+		}
+	}(account)
 
-		// Goroutine that periodically marks the account as either still refreshing
-		// or completed/failed.
-		s.wg.Add(1)
-		go func(account users.Account) {
-			defer s.wg.Done()
-			now := time.Now()
-			account.RefreshStartedAt = &now
-			account.RefreshActiveAt = &now
-			account.RefreshCompletedAt = nil
-			account.RefreshStatus = "pending"
-			if err := s.us.UpdateAccount(ctx, account); err != nil {
-				log.ErrorContext(ctx, "account status goroutine died", "error", err)
+	// Goroutine that periodically marks the account as either still refreshing
+	// or completed/failed.
+	s.wg.Add(1)
+	go func(account users.Account) {
+		defer s.wg.Done()
+		now := time.Now()
+		account.RefreshStartedAt = &now
+		account.RefreshActiveAt = &now
+		account.RefreshCompletedAt = nil
+		account.RefreshStatus = "pending"
+		if err := s.us.UpdateAccount(ctx, account); err != nil {
+			log.ErrorContext(ctx, "account status goroutine died", "error", err)
+			return
+		}
+
+		tick := time.NewTicker(10 * time.Second)
+		defer tick.Stop()
+
+		for {
+			select {
+			case now := <-tick.C:
+				log.InfoContext(ctx, "service still refreshing")
+				account.RefreshActiveAt = &now
+				if err := s.us.UpdateAccount(ctx, account); err != nil {
+					log.ErrorContext(ctx, "account status goroutine died", "error", err)
+					return
+				}
+
+			case err := <-result:
+				if err != nil {
+					log.ErrorContext(ctx, "failed to refresh", "error", err)
+					account.RefreshStatus = "failed: " + err.Error()
+				} else {
+					log.InfoContext(ctx, "refresh complete")
+					account.RefreshStatus = "completed"
+				}
+				now := time.Now()
+				account.RefreshCompletedAt = &now
+				if err := s.us.UpdateAccount(ctx, account); err != nil {
+					log.ErrorContext(ctx, "account status goroutine died", "error", err)
+				}
 				return
 			}
-
-			tick := time.NewTicker(10 * time.Second)
-			defer tick.Stop()
-
-			for {
-				select {
-				case now := <-tick.C:
-					log.InfoContext(ctx, "service still refreshing")
-					account.RefreshActiveAt = &now
-					if err := s.us.UpdateAccount(ctx, account); err != nil {
-						log.ErrorContext(ctx, "account status goroutine died", "error", err)
-						return
-					}
-
-				case err := <-result:
-					if err != nil {
-						log.ErrorContext(ctx, "failed to refresh", "error", err)
-						account.RefreshStatus = "failed: " + err.Error()
-					} else {
-						log.InfoContext(ctx, "refresh complete")
-						account.RefreshStatus = "completed"
-					}
-					now := time.Now()
-					account.RefreshCompletedAt = &now
-					if err := s.us.UpdateAccount(ctx, account); err != nil {
-						log.ErrorContext(ctx, "account status goroutine died", "error", err)
-					}
-					break
-				}
-			}
-		}(account)
-	}
-	return nil
+		}
+	}(account)
 }
 
 func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user users.User, account users.Account) error {
@@ -124,6 +121,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	}
 
 	for _, moxDeck := range moxfieldDecks {
+		log.Info("considering moxfield deck", "id", moxDeck.ID)
 
 		// Look for this deck in our db results
 		i := slices.IndexFunc(existingDecks, func(d Deck) bool {
@@ -178,6 +176,30 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	return nil
 }
 
+func (s *Service) GetDecksForUser(ctx context.Context, user users.User) ([]Deck, error) {
+
+	const q = `
+	SELECT
+		id,
+		user_id,
+		service,
+		service_id,
+		name,
+		format,
+		url,
+		color_identity,
+		folder,
+		archetypes,
+		updated_at,
+		refreshed_at
+	FROM decks
+	WHERE user_id = $1`
+
+	decks := []Deck{}
+	err := s.db.SelectContext(ctx, &decks, q, user.ID)
+	return decks, err
+}
+
 func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User, service string) ([]Deck, error) {
 
 	const q = `
@@ -192,7 +214,8 @@ func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User
 		color_identity,
 		folder,
 		archetypes,
-		updated_at
+		updated_at,
+		refreshed_at
 	FROM decks
 	WHERE user_id = $1
 		AND service = $2`
@@ -217,7 +240,8 @@ func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 		folder,
 		leaders,
 		archetypes,
-		updated_at
+		updated_at,
+		refreshed_at
 	VALUES (
 		:id,
 		:user_id,
@@ -230,7 +254,8 @@ func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 		:folder,
 		:leaders,
 		:archetypes,
-		:updated_at
+		:updated_at,
+		:refreshed_at
 	)`
 
 	deck.ID = uuid.New().String()
@@ -249,7 +274,8 @@ func (s *Service) UpdateDeck(ctx context.Context, deck Deck) error {
 		folder = :folder,
 		leaders = :leaders,
 		archetypes = :archetypes,
-		updated_a = :updated_at
+		updated_at = :updated_at,
+		refreshed_at = :refreshed_at
 	WHERE id = :id
 	`
 

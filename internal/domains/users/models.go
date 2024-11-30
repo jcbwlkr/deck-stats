@@ -1,16 +1,25 @@
 package users
 
 import (
-	"context"
+	"errors"
 	"time"
+)
 
-	"github.com/jmoiron/sqlx"
+const (
+	RoleUser = "USER"
+)
+
+var (
+	ErrBlankPassword       = errors.New("password is blank")
+	ErrPasswordsDoNotMatch = errors.New("passwords do not match")
+	ErrUsernameRegistered  = errors.New("username is already registered")
+	ErrUserNotFound        = errors.New("username is not registered")
+	ErrPasswordInvalid     = errors.New("wrong password")
 )
 
 type User struct {
 	ID           string    `db:"id" json:"id"`
 	Username     string    `db:"username" json:"username"`
-	Password     string    `db:"password" json:"-"`
 	PasswordHash string    `db:"password_hash" json:"-"`
 	Roles        []string  `db:"roles" json:"roles"`
 	Accounts     []Account `db:"accounts" json:"accounts"`
@@ -18,6 +27,7 @@ type User struct {
 
 type Account struct {
 	ID       string `db:"id" json:"id"`
+	UserID   string `db:"user_id" json:"-"`
 	Service  string `db:"service" json:"service"`
 	Token    string `db:"token" json:"-"`
 	Username string `db:"username" json:"username"`
@@ -28,28 +38,19 @@ type Account struct {
 	RefreshStatus      string     `db:"refresh_status" json:"refresh_status"`
 }
 
-type Service struct {
-	db *sqlx.DB
+type NewUser struct {
+	Username        string `json:"username"`
+	Password        string `json:"password"`
+	PasswordConfirm string `json:"password_confirm"`
 }
 
-func NewService(db *sqlx.DB) *Service {
-	return &Service{db: db}
+type LoginUser struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
-//func (s *Service) RegisterUser(ctx context.Context,
-
-func (s *Service) UpdateAccount(ctx context.Context, account Account) error {
-	const q = `
-	UPDATE user_accounts SET
-		service = :service
-		username = :username
-		token = :token
-		refresh_started_at = :refresh_started_at
-		refresh_active_at = :refresh_active_at
-		refresh_completed_at = :refresh_completed_at
-		refresh_status = :refresh_status
-	WHERE id = :id`
-
-	_, err := s.db.NamedExecContext(ctx, q, account)
-	return err
+type NewAccount struct {
+	Service  string `json:"service"`
+	Token    string `json:"token"`
+	Username string `json:"username"`
 }

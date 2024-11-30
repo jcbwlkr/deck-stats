@@ -8,6 +8,7 @@ import (
 
 	"github.com/kelseyhightower/envconfig"
 
+	"github.com/jcbwlkr/deck-stats/internal/auth"
 	"github.com/jcbwlkr/deck-stats/internal/database"
 	"github.com/jcbwlkr/deck-stats/internal/domains/magic"
 	"github.com/jcbwlkr/deck-stats/internal/domains/users"
@@ -25,7 +26,9 @@ func main() {
 func run() error {
 
 	var config struct {
-		AddressServer string `envconfig:"address_server" default:"localhost:9040"`
+		AddressServer string `envconfig:"address_server"`
+
+		JWTSecret string `envconfig:"jwt_secret"`
 
 		DBName string `envconfig:"db_name"`
 		DBHost string `envconfig:"db_host"`
@@ -53,8 +56,9 @@ func run() error {
 	userService := users.NewService(db)
 	magicService := magic.NewService(db, userService, mc)
 	defer magicService.Wait()
+	authenticator := auth.NewAuthenticator(config.JWTSecret)
 
-	app := handlers.App(magicService)
+	app := handlers.App(magicService, userService, authenticator)
 
 	// TODO(jlw) graceful shutdown
 

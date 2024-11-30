@@ -21,11 +21,10 @@ type Client struct {
 
 func NewClient(sleep time.Duration) *Client {
 
-	// Creating a gating mechanism so expensive operations can ask to receive
-	// from this channel to get permission to work. A little infinitely looping
-	// goroutine will push a value, wait for someone to take it, sleep a bit,
-	// then start over. This provides a simple way to ensure we don't over-call
-	// the api.
+	// This semaphore goroutine acts as a traffic cop. Expensive operations
+	// receive from this channel to get permission to do work. This inifinite
+	// loop will push a value, wait for someone to take it, sleep a bit, then
+	// start over. This is a simple way to ensure we don't abuse the api.
 	gate := make(chan struct{})
 	go func() {
 		for {
@@ -49,6 +48,8 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 		return nil, err
 	}
 	req.Header.Add("Authorization", "Bearer "+token)
+	req.Header.Add("User-Agent", "jcbwlkr/deck-stats v0.0.1")
+	req.Header.Add("Accept", "application/json")
 
 	resp, err := c.client.Do(req)
 	if err != nil {
@@ -57,6 +58,8 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
+		//b, _ := io.ReadAll(resp.Body)
+		//fmt.Println(string(b[0:min(512, len(b)-1)]))
 		return nil, fmt.Errorf("moxfield: api status %s", resp.Status)
 	}
 
@@ -93,7 +96,11 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 
 func (c *Client) AddDeckDetails(ctx context.Context, token string, d *magic.Deck) error {
 
-	<-c.gate
+	// Block until we have permission to call or our context is canceled.
+	select {
+	case <-c.gate:
+	case <-ctx.Done():
+	}
 
 	url := fmt.Sprintf("%s/v3/decks/all/%s", c.url, d.ServiceID)
 
