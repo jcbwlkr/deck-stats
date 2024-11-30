@@ -35,6 +35,8 @@ func run() error {
 		DBPort int    `envconfig:"db_port"`
 		DBUser string `envconfig:"db_user"`
 		DBPass string `envconfig:"db_pass"`
+
+		MoxfieldUserAgent string `envconfig:"moxfield_user_agent"`
 	}
 	envconfig.MustProcess("", &config)
 
@@ -52,7 +54,7 @@ func run() error {
 		return err
 	}
 
-	mc := moxfield.NewClient(1 * time.Second)
+	mc := moxfield.NewClient(config.MoxfieldUserAgent, 1*time.Second)
 	userService := users.NewService(db)
 	magicService := magic.NewService(db, userService, mc)
 	defer magicService.Wait()

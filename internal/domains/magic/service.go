@@ -107,7 +107,7 @@ func (s *Service) RefreshDecks(user users.User, account users.Account) {
 	}(account)
 }
 
-func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user users.User, account users.Account) error {
+func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user users.User, account users.Account) error {
 	start := time.Now()
 
 	existingDecks, err := s.GetDecksForUserAndService(ctx, user, account.Service)
@@ -121,7 +121,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	}
 
 	for _, moxDeck := range moxfieldDecks {
-		log.Info("considering moxfield deck", "id", moxDeck.ID)
+		log := logger.With("name", moxDeck.Name)
 
 		// Look for this deck in our db results
 		i := slices.IndexFunc(existingDecks, func(d Deck) bool {
@@ -131,7 +131,6 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 		var deck *Deck
 		if i >= 0 {
 			deck = &existingDecks[i]
-			log = log.With("id", deck.ID)
 		}
 
 		switch {
@@ -168,8 +167,8 @@ func (s *Service) refreshMoxfield(ctx context.Context, log *slog.Logger, user us
 	}
 
 	for _, eDeck := range existingDecks {
-		if eDeck.UpdatedAt.Before(start) {
-			log.Info("deleting deck that wasn't on moxfield", "id", eDeck.ID)
+		if eDeck.RefreshedAt.Before(start) {
+			logger.Info("deleting deck that wasn't on moxfield", "id", eDeck.ID, "name", eDeck.Name)
 		}
 	}
 
@@ -228,7 +227,7 @@ func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User
 func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 
 	const q = `
-	INSERT INTO decks
+	INSERT INTO decks (
 		id,
 		user_id,
 		service,
@@ -242,7 +241,7 @@ func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 		archetypes,
 		updated_at,
 		refreshed_at
-	VALUES (
+	) VALUES (
 		:id,
 		:user_id,
 		:service,

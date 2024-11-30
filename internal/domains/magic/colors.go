@@ -62,7 +62,7 @@ func (id ColorIdentity) Value() (driver.Value, error) {
 	for _, c := range id {
 		s = append(s, string(c))
 	}
-	return pq.StringArray(s), nil
+	return pq.StringArray(s).Value()
 }
 
 // Scan implements the sql.Scanner interface,

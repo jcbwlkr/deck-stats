@@ -13,13 +13,14 @@ import (
 )
 
 type Client struct {
-	url    string
-	client *http.Client
+	url       string
+	userAgent string
+	client    *http.Client
 
 	gate chan struct{}
 }
 
-func NewClient(sleep time.Duration) *Client {
+func NewClient(userAgent string, sleep time.Duration) *Client {
 
 	// This semaphore goroutine acts as a traffic cop. Expensive operations
 	// receive from this channel to get permission to do work. This inifinite
@@ -34,9 +35,10 @@ func NewClient(sleep time.Duration) *Client {
 	}()
 
 	return &Client{
-		url:    "https://api2.moxfield.com",
-		client: &http.Client{},
-		gate:   gate,
+		url:       "https://api2.moxfield.com",
+		userAgent: userAgent,
+		client:    &http.Client{},
+		gate:      gate,
 	}
 }
 
@@ -48,8 +50,8 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 		return nil, err
 	}
 	req.Header.Add("Authorization", "Bearer "+token)
-	req.Header.Add("User-Agent", "jcbwlkr/deck-stats v0.0.1")
 	req.Header.Add("Accept", "application/json")
+	req.Header.Add("User-Agent", c.userAgent)
 
 	resp, err := c.client.Do(req)
 	if err != nil {
@@ -109,6 +111,8 @@ func (c *Client) AddDeckDetails(ctx context.Context, token string, d *magic.Deck
 		return err
 	}
 	req.Header.Add("Authorization", "Bearer "+token)
+	req.Header.Add("Accept", "application/json")
+	req.Header.Add("User-Agent", c.userAgent)
 
 	resp, err := c.client.Do(req)
 	if err != nil {
