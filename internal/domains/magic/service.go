@@ -150,6 +150,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 			moxDeck.ID = deck.ID
 			moxDeck.UserID = deck.UserID
 			moxDeck.RefreshedAt = time.Now()
+			deck.RefreshedAt = moxDeck.RefreshedAt
 			if err := s.mc.AddDeckDetails(ctx, account.Token, &moxDeck); err != nil {
 				return err
 			}
@@ -158,7 +159,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 			}
 
 		default:
-			log.Info("deck is up to date")
+			log.Debug("deck is up to date")
 			deck.RefreshedAt = time.Now()
 			if err := s.UpdateDeck(ctx, *deck); err != nil {
 				return err
@@ -169,6 +170,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 	for _, eDeck := range existingDecks {
 		if eDeck.RefreshedAt.Before(start) {
 			logger.Info("deleting deck that wasn't on moxfield", "id", eDeck.ID, "name", eDeck.Name)
+			// TODO(jlw) this
 		}
 	}
 
@@ -188,6 +190,7 @@ func (s *Service) GetDecksForUser(ctx context.Context, user users.User) ([]Deck,
 		url,
 		color_identity,
 		folder,
+		leaders,
 		archetypes,
 		updated_at,
 		refreshed_at
@@ -212,6 +215,7 @@ func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User
 		url,
 		color_identity,
 		folder,
+		leaders,
 		archetypes,
 		updated_at,
 		refreshed_at

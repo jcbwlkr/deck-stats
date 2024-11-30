@@ -77,6 +77,7 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 	for _, deck := range data.Decks {
 		d := magic.Deck{
 			Name:      deck.Name,
+			Format:    deck.Format,
 			Service:   services.Moxfield,
 			ServiceID: deck.PublicID,
 			URL:       deck.PublicURL,
@@ -86,6 +87,7 @@ func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, e
 			},
 			UpdatedAt: deck.LastUpdatedAtUtc,
 		}
+
 		for _, c := range deck.ColorIdentity {
 			d.ColorIdentity = append(d.ColorIdentity, magic.Color(strings.ToLower(c)))
 		}
@@ -141,20 +143,20 @@ func (c *Client) AddDeckDetails(ctx context.Context, token string, d *magic.Deck
 		for _, card := range data.Boards.Commanders.Cards {
 			d.Leaders.Oathbreakers = append(d.Leaders.Oathbreakers, magic.Card{
 				ID:   card.Card.ScryfallID,
-				Name: card.Card.Name,
+				Name: card.PreferredName(),
 			})
 		}
 		for _, card := range data.Boards.SignatureSpells.Cards {
 			d.Leaders.SignatureSpells = append(d.Leaders.SignatureSpells, magic.Card{
 				ID:   card.Card.ScryfallID,
-				Name: card.Card.Name,
+				Name: card.PreferredName(),
 			})
 		}
 	} else {
 		for _, card := range data.Boards.Commanders.Cards {
 			d.Leaders.Commanders = append(d.Leaders.Commanders, magic.Card{
 				ID:   card.Card.ScryfallID,
-				Name: card.Card.Name,
+				Name: card.PreferredName(),
 			})
 		}
 	}
@@ -258,6 +260,7 @@ type card struct {
 		Set            string   `json:"set"`
 		SetName        string   `json:"set_name"`
 		Name           string   `json:"name"`
+		FlavorName     string   `json:"flavor_name"`
 		Cn             string   `json:"cn"`
 		Layout         string   `json:"layout"`
 		Cmc            float64  `json:"cmc"`
@@ -269,6 +272,13 @@ type card struct {
 		ColorIndicator []string `json:"color_indicator"`
 		ColorIdentity  []string `json:"color_identity"`
 	} `json:"card"`
+}
+
+func (c card) PreferredName() string {
+	if c.Card.FlavorName != "" {
+		return c.Card.FlavorName
+	}
+	return c.Card.Name
 }
 
 type deck struct {

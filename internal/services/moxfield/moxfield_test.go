@@ -29,6 +29,8 @@ func TestClientListMyDecks(t *testing.T) {
 			filename = "testdata/deck-cats.json"
 		case "/v3/decks/all/NM5x9FZ6cEGEEfx8RSU5mQ":
 			filename = "testdata/deck-poison.json"
+		case "/v3/decks/all/hJ0iLLhZ1ECZlQpyX8czKA":
+			filename = "testdata/deck-blanka.json"
 		}
 
 		if filename == "" {
@@ -44,7 +46,7 @@ func TestClientListMyDecks(t *testing.T) {
 	}))
 	defer srv.Close()
 
-	client := NewClient(0)
+	client := NewClient("", 0)
 	client.url = srv.URL
 
 	ctx := context.Background()
@@ -67,6 +69,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	vialSmasher := magic.Deck{
 		Name:          "1,000 Smashed Vials",
+		Format:        "commander",
 		Service:       services.Moxfield,
 		ServiceID:     "CZ0EOEAF0Ue1wZQRUNARZw",
 		URL:           "https://www.moxfield.com/decks/CZ0EOEAF0Ue1wZQRUNARZw",
@@ -99,6 +102,7 @@ func TestClientListMyDecks(t *testing.T) {
 
 	cats := magic.Deck{
 		Name:          "Cats!",
+		Format:        "commander",
 		Service:       services.Moxfield,
 		ServiceID:     "ryBvdOgMCEqkKKpbNVd7tQ",
 		URL:           "https://www.moxfield.com/decks/ryBvdOgMCEqkKKpbNVd7tQ",
@@ -123,11 +127,12 @@ func TestClientListMyDecks(t *testing.T) {
 		UpdatedAt:  parseUTC("2023-03-31T17:33:58.21Z"),
 	}
 	if diff := cmp.Diff(cats, deckList[23]); diff != "" {
-		t.Errorf("second to last response should be winota but was:\n%s", diff)
+		t.Errorf("second to last response should be Arahbo but was:\n%s", diff)
 	}
 
 	poison := magic.Deck{
 		Name:          "Drink your Poison",
+		Format:        "oathbreaker",
 		Service:       services.Moxfield,
 		ServiceID:     "NM5x9FZ6cEGEEfx8RSU5mQ",
 		URL:           "https://www.moxfield.com/decks/NM5x9FZ6cEGEEfx8RSU5mQ",
@@ -154,11 +159,38 @@ func TestClientListMyDecks(t *testing.T) {
 		UpdatedAt:  parseUTC("2023-10-07T04:16:22.107Z"),
 	}
 	if diff := cmp.Diff(poison, deckList[43]); diff != "" {
-		t.Errorf("second to last response should be winota but was:\n%s", diff)
+		t.Errorf("second to last response should be poison but was:\n%s", diff)
+	}
+
+	blanka := magic.Deck{
+		Name:          "Blanka never loses!",
+		Format:        "commander",
+		Service:       services.Moxfield,
+		ServiceID:     "hJ0iLLhZ1ECZlQpyX8czKA",
+		URL:           "https://www.moxfield.com/decks/hJ0iLLhZ1ECZlQpyX8czKA",
+		ColorIdentity: magic.Gruul,
+		Folder: magic.Folder{
+			ID:   "pWK5O",
+			Name: "03 - Decks I Built But Do Not Own",
+		},
+		Leaders: magic.Leaders{
+			Commanders: []magic.Card{
+				{
+					ID:   "26fecfd4-40c1-4ed3-bf58-22c7b98699a9",
+					Name: "Blanka, Ferocious Friend",
+				},
+			},
+		},
+		Archetypes: []magic.Archetype{},
+		UpdatedAt:  parseUTC("2024-10-20T16:55:06.397Z"),
+	}
+	if diff := cmp.Diff(blanka, deckList[7]); diff != "" {
+		t.Errorf("eighth response should be blanka but was:\n%s", diff)
 	}
 
 	winota := magic.Deck{
 		Name:          "Winota Ryder",
+		Format:        "commander",
 		Service:       services.Moxfield,
 		ServiceID:     "H7Es1cn9y0qJVkT8_2A-Zw",
 		URL:           "https://www.moxfield.com/decks/H7Es1cn9y0qJVkT8_2A-Zw",
