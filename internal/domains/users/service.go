@@ -108,7 +108,7 @@ func (s *Service) GetUserByUsername(ctx context.Context, username string) (*User
 func (s *Service) GetAccount(ctx context.Context, id, userID string) (Account, error) {
 	const q = `
 	SELECT
-		id, service, token, username
+		id, service, username
 	FROM user_accounts
 	WHERE id = $1
 		AND user_id = $2`
@@ -123,15 +123,14 @@ func (s *Service) GetAccount(ctx context.Context, id, userID string) (Account, e
 func (s *Service) CreateAccount(ctx context.Context, userID string, na NewAccount) (Account, error) {
 	const q = `
 	INSERT INTO user_accounts
-	(id, user_id, service, token, username)
+	(id, user_id, service, username)
 	VALUES
-	(:id, :user_id, :service, :token, :username)`
+	(:id, :user_id, :service, :username)`
 
 	a := Account{
 		ID:       uuid.New().String(),
 		UserID:   userID,
 		Service:  na.Service,
-		Token:    na.Token,
 		Username: na.Username,
 	}
 
@@ -144,7 +143,6 @@ func (s *Service) UpdateAccount(ctx context.Context, account Account) error {
 	UPDATE user_accounts SET
 		service = :service,
 		username = :username,
-		token = :token,
 		refresh_started_at = :refresh_started_at,
 		refresh_active_at = :refresh_active_at,
 		refresh_completed_at = :refresh_completed_at,

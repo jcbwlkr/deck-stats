@@ -1,0 +1,1764 @@
+{
+  "pageNumber": 1,
+  "pageSize": 25,
+  "totalResults": 30,
+  "totalPages": 2,
+  "data": [
+    {
+      "id": "AJxQND",
+      "name": "Drink your Poison",
+      "hasPrimer": false,
+      "format": "oathbreaker",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/NM5x9FZ6cEGEEfx8RSU5mQ",
+      "publicId": "NM5x9FZ6cEGEEfx8RSU5mQ",
+      "likeCount": 0,
+      "viewCount": 1,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": false,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "kyBP1",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-08-26T00:17:46.137Z",
+      "lastUpdatedAtUtc": "2024-11-30T21:42:01.61Z",
+      "mainboardCount": 9,
+      "sideboardCount": 0,
+      "maybeboardCount": 0,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.62,
+        "black": 0,
+        "red": 0,
+        "green": 0.38
+      },
+      "colorIdentity": [
+        "U",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.62,
+        "black": 0,
+        "red": 0,
+        "green": 0.38
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "Jyr564",
+      "name": "1,000 Smashed Vials",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/CZ0EOEAF0Ue1wZQRUNARZw",
+      "publicId": "CZ0EOEAF0Ue1wZQRUNARZw",
+      "likeCount": 0,
+      "viewCount": 1,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": false,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "KP8Rz",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-01-29T21:41:35.027Z",
+      "lastUpdatedAtUtc": "2024-11-30T21:41:45.337Z",
+      "mainboardCount": 92,
+      "sideboardCount": 0,
+      "maybeboardCount": 63,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "B",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.78,
+        "black": 0.14,
+        "red": 0.08,
+        "green": 0
+      },
+      "colorIdentity": [
+        "U",
+        "B",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.6,
+        "black": 0.22,
+        "red": 0.18,
+        "green": 0
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 2,
+      "deckTier2Count": 1,
+      "deckTier3Count": 66,
+      "deckTier4Count": 12
+    },
+    {
+      "id": "o4W82b",
+      "name": "Blanka never loses!",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/hJ0iLLhZ1ECZlQpyX8czKA",
+      "publicId": "hJ0iLLhZ1ECZlQpyX8czKA",
+      "likeCount": 0,
+      "viewCount": 0,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "na78N",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-10-20T14:37:34.953Z",
+      "lastUpdatedAtUtc": "2024-11-30T21:41:34.123Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 8,
+      "hubNames": [],
+      "colors": [
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0.54,
+        "green": 0.46
+      },
+      "colorIdentity": [
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0.53,
+        "green": 0.47
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 5,
+      "deckTier2Count": 5,
+      "deckTier3Count": 43,
+      "deckTier4Count": 11
+    },
+    {
+      "id": "yDobQb",
+      "name": "Exploding Devils",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/eJ_9qv-sSEihzxOype_Odg",
+      "publicId": "eJ_9qv-sSEihzxOype_Odg",
+      "likeCount": 0,
+      "viewCount": 8,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "MxzZX",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-11-08T23:09:31.793Z",
+      "lastUpdatedAtUtc": "2024-11-19T18:46:19.337Z",
+      "mainboardCount": 100,
+      "sideboardCount": 49,
+      "maybeboardCount": 90,
+      "hubNames": [],
+      "colors": [
+        "B",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.65,
+        "red": 0.35,
+        "green": 0
+      },
+      "colorIdentity": [
+        "B",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.6,
+        "red": 0.4,
+        "green": 0
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 5,
+      "deckTier2Count": 3,
+      "deckTier3Count": 57,
+      "deckTier4Count": 18
+    },
+    {
+      "id": "61njqp",
+      "name": "Pew Pew",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/bi1BZZdMwEmC_ZhGFuWd9w",
+      "publicId": "bi1BZZdMwEmC_ZhGFuWd9w",
+      "likeCount": 0,
+      "viewCount": 21,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "KPVeN",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-09-21T16:33:17.633Z",
+      "lastUpdatedAtUtc": "2024-11-17T00:41:08.083Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 56,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.4,
+        "black": 0,
+        "red": 0.6,
+        "green": 0
+      },
+      "colorIdentity": [
+        "U",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.43,
+        "black": 0,
+        "red": 0.57,
+        "green": 0
+      },
+      "deckTier": 4,
+      "commanderTier": 3,
+      "deckTier1Count": 3,
+      "deckTier2Count": 48,
+      "deckTier3Count": 5,
+      "deckTier4Count": 15
+    },
+    {
+      "id": "o7b4ZZ",
+      "name": "Population Growth",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/w2J8y-Hs30qj-1SpeJN6zg",
+      "publicId": "w2J8y-Hs30qj-1SpeJN6zg",
+      "likeCount": 0,
+      "viewCount": 13,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "kOjy0",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-10-08T23:49:49.973Z",
+      "lastUpdatedAtUtc": "2024-11-14T16:16:01.48Z",
+      "mainboardCount": 100,
+      "sideboardCount": 21,
+      "maybeboardCount": 48,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0.47,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0.53
+      },
+      "colorIdentity": [
+        "W",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.46,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0.54
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 2,
+      "deckTier2Count": 0,
+      "deckTier3Count": 58,
+      "deckTier4Count": 16
+    },
+    {
+      "id": "eNjQP1",
+      "name": "Awaken your Rage",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/BTqFvoNFz0yYZa_qcviCZg",
+      "publicId": "BTqFvoNFz0yYZa_qcviCZg",
+      "likeCount": 0,
+      "viewCount": 15,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": false,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "xRN1Q",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-02-02T00:37:06.97Z",
+      "lastUpdatedAtUtc": "2024-11-13T17:32:34.523Z",
+      "mainboardCount": 98,
+      "sideboardCount": 3,
+      "maybeboardCount": 51,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0.42,
+        "blue": 0,
+        "black": 0,
+        "red": 0.28,
+        "green": 0.3
+      },
+      "colorIdentity": [
+        "W",
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.39,
+        "blue": 0,
+        "black": 0,
+        "red": 0.3,
+        "green": 0.32
+      },
+      "deckTier": 4,
+      "commanderTier": 3,
+      "deckTier1Count": 0,
+      "deckTier2Count": 19,
+      "deckTier3Count": 56,
+      "deckTier4Count": 19
+    },
+    {
+      "id": "DvOq35",
+      "name": "Sneaky Merfolk",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/4nSKM91oq0SONkbNME3VeA",
+      "publicId": "4nSKM91oq0SONkbNME3VeA",
+      "likeCount": 0,
+      "viewCount": 14,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "w233d",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-11-05T22:11:29.64Z",
+      "lastUpdatedAtUtc": "2024-11-13T17:31:16.26Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 32,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.74,
+        "black": 0,
+        "red": 0,
+        "green": 0.26
+      },
+      "colorIdentity": [
+        "U",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.69,
+        "black": 0,
+        "red": 0,
+        "green": 0.31
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 1,
+      "deckTier2Count": 20,
+      "deckTier3Count": 34,
+      "deckTier4Count": 14
+    },
+    {
+      "id": "j6ngm7",
+      "name": "Blinky Soldiers",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/OZCiPfMR-UyytjuO_KaxNA",
+      "publicId": "OZCiPfMR-UyytjuO_KaxNA",
+      "likeCount": 0,
+      "viewCount": 12,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "3qGdv",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-11-07T23:44:28.527Z",
+      "lastUpdatedAtUtc": "2024-11-11T20:32:18.967Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 11,
+      "hubNames": [],
+      "colors": [
+        "W"
+      ],
+      "colorPercentages": {
+        "white": 1,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0
+      },
+      "colorIdentity": [
+        "W"
+      ],
+      "colorIdentityPercentages": {
+        "white": 1,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0
+      },
+      "deckTier": 4,
+      "commanderTier": 3,
+      "deckTier1Count": 11,
+      "deckTier2Count": 27,
+      "deckTier3Count": 8,
+      "deckTier4Count": 5
+    },
+    {
+      "id": "o4lqGW",
+      "name": "Winota Ryder",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/H7Es1cn9y0qJVkT8_2A-Zw",
+      "publicId": "H7Es1cn9y0qJVkT8_2A-Zw",
+      "likeCount": 0,
+      "viewCount": 9,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "Er9bV",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-10-16T21:02:31.33Z",
+      "lastUpdatedAtUtc": "2024-10-20T13:45:59.85Z",
+      "mainboardCount": 100,
+      "sideboardCount": 9,
+      "maybeboardCount": 44,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0.64,
+        "blue": 0,
+        "black": 0,
+        "red": 0.36,
+        "green": 0
+      },
+      "colorIdentity": [
+        "W",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.59,
+        "blue": 0,
+        "black": 0,
+        "red": 0.41,
+        "green": 0
+      },
+      "deckTier": 4,
+      "commanderTier": 1,
+      "deckTier1Count": 11,
+      "deckTier2Count": 26,
+      "deckTier3Count": 32,
+      "deckTier4Count": 20
+    },
+    {
+      "id": "2zJNOp",
+      "name": "Power Dorks",
+      "hasPrimer": true,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/gXJvLUmYpkC4pB9dN24YTA",
+      "publicId": "gXJvLUmYpkC4pB9dN24YTA",
+      "likeCount": 1,
+      "viewCount": 106,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "PbJzl",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-04-16T02:21:22.61Z",
+      "lastUpdatedAtUtc": "2024-10-11T16:28:09.02Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 54,
+      "hubNames": [],
+      "colors": [
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0.19,
+        "green": 0.81
+      },
+      "colorIdentity": [
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0.24,
+        "green": 0.76
+      },
+      "deckTier": 4,
+      "commanderTier": 2,
+      "deckTier1Count": 1,
+      "deckTier2Count": 0,
+      "deckTier3Count": 72,
+      "deckTier4Count": 7
+    },
+    {
+      "id": "BvWX0G",
+      "name": "Goodest Boy",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/71gKS8dxTUahwEkhOmdRsg",
+      "publicId": "71gKS8dxTUahwEkhOmdRsg",
+      "likeCount": 0,
+      "viewCount": 18,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "LwDOm",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-05-31T15:15:39.493Z",
+      "lastUpdatedAtUtc": "2024-10-01T19:59:20.87Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 38,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.33,
+        "black": 0,
+        "red": 0.23,
+        "green": 0.43
+      },
+      "colorIdentity": [
+        "U",
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.33,
+        "black": 0,
+        "red": 0.27,
+        "green": 0.39
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "78VgMN",
+      "name": "Aragorn, Uniter of Jank",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/CnzEi_BYvE6EyB-jIxQgfA",
+      "publicId": "CnzEi_BYvE6EyB-jIxQgfA",
+      "likeCount": 0,
+      "viewCount": 14,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "q4Q65",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-09-20T05:40:29.75Z",
+      "lastUpdatedAtUtc": "2024-09-20T15:18:32.94Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 0,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "U",
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0.32,
+        "blue": 0.14,
+        "black": 0,
+        "red": 0.16,
+        "green": 0.38
+      },
+      "colorIdentity": [
+        "W",
+        "U",
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.3,
+        "blue": 0.16,
+        "black": 0,
+        "red": 0.17,
+        "green": 0.37
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "G4lpOo",
+      "name": "Hot Oily Goblins",
+      "hasPrimer": false,
+      "format": "standard",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/MNn7hU7OPkWwyuN5Ur9nOA",
+      "publicId": "MNn7hU7OPkWwyuN5Ur9nOA",
+      "likeCount": 0,
+      "viewCount": 13,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "V2x6j",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-05-21T20:02:56.643Z",
+      "lastUpdatedAtUtc": "2024-09-18T13:27:27.57Z",
+      "mainboardCount": 60,
+      "sideboardCount": 6,
+      "maybeboardCount": 8,
+      "hubNames": [],
+      "colors": [
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 1,
+        "green": 0
+      },
+      "colorIdentity": [
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 1,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "nyomyy",
+      "name": "Sneaky Sea Gang",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/GUr9qk5iB0-n7AWsskpTdQ",
+      "publicId": "GUr9qk5iB0-n7AWsskpTdQ",
+      "likeCount": 0,
+      "viewCount": 16,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "01b4W",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2024-03-18T18:09:28.507Z",
+      "lastUpdatedAtUtc": "2024-04-11T17:51:21.443Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 79,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "B"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.81,
+        "black": 0.19,
+        "red": 0,
+        "green": 0
+      },
+      "colorIdentity": [
+        "U",
+        "B"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.76,
+        "black": 0.24,
+        "red": 0,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "GPVRJ4",
+      "name": "Eat your dogfood",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/thorpdW-MUS8Jtrnc_ykaw",
+      "publicId": "thorpdW-MUS8Jtrnc_ykaw",
+      "likeCount": 0,
+      "viewCount": 29,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "O99Rm",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-06-21T15:01:55.87Z",
+      "lastUpdatedAtUtc": "2024-04-11T17:51:16.227Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 1,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "R",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0.36,
+        "blue": 0,
+        "black": 0,
+        "red": 0.16,
+        "green": 0.47
+      },
+      "colorIdentity": [
+        "W",
+        "R",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.34,
+        "blue": 0,
+        "black": 0,
+        "red": 0.22,
+        "green": 0.44
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "AJN4Ae",
+      "name": "Equipment Shenanigans",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/zo-ZIHdHxUGusO00-eRlWg",
+      "publicId": "zo-ZIHdHxUGusO00-eRlWg",
+      "likeCount": 0,
+      "viewCount": 24,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "YNWpB",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-09-26T14:14:32.477Z",
+      "lastUpdatedAtUtc": "2024-04-11T17:51:04.327Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 113,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0.7,
+        "blue": 0,
+        "black": 0,
+        "red": 0.3,
+        "green": 0
+      },
+      "colorIdentity": [
+        "W",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.61,
+        "blue": 0,
+        "black": 0,
+        "red": 0.39,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "J7yj34",
+      "name": "Voltron Ivy",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/iy_ZnB1ZsUStZwL21IaePg",
+      "publicId": "iy_ZnB1ZsUStZwL21IaePg",
+      "likeCount": 0,
+      "viewCount": 17,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "J9b6m",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-06-17T19:10:02.08Z",
+      "lastUpdatedAtUtc": "2024-01-29T16:14:21.177Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 61,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.43,
+        "black": 0,
+        "red": 0,
+        "green": 0.57
+      },
+      "colorIdentity": [
+        "U",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.45,
+        "black": 0,
+        "red": 0,
+        "green": 0.55
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "yDnVDD",
+      "name": "Squirrel Party",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/i7Hb7OduckWa7JMfwyVaCw",
+      "publicId": "i7Hb7OduckWa7JMfwyVaCw",
+      "likeCount": 0,
+      "viewCount": 13,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "kAGa0",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-11-17T20:59:02.977Z",
+      "lastUpdatedAtUtc": "2024-01-29T16:14:17.04Z",
+      "mainboardCount": 100,
+      "sideboardCount": 3,
+      "maybeboardCount": 19,
+      "hubNames": [],
+      "colors": [
+        "B",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.38,
+        "red": 0,
+        "green": 0.62
+      },
+      "colorIdentity": [
+        "B",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.41,
+        "red": 0,
+        "green": 0.59
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "61ZnVo",
+      "name": "Free Gas",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/ZrHqg_imgkGUtiKOsnqDkA",
+      "publicId": "ZrHqg_imgkGUtiKOsnqDkA",
+      "likeCount": 0,
+      "viewCount": 24,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "Lmgvp",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-11-01T15:20:04.227Z",
+      "lastUpdatedAtUtc": "2024-01-29T16:14:03.883Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 20,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.57,
+        "black": 0,
+        "red": 0,
+        "green": 0.43
+      },
+      "colorIdentity": [
+        "U",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.55,
+        "black": 0,
+        "red": 0,
+        "green": 0.45
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "AW35wO",
+      "name": "Can't Block This",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/CyHrcmXWUEqHqhEfYdQjuw",
+      "publicId": "CyHrcmXWUEqHqhEfYdQjuw",
+      "likeCount": 0,
+      "viewCount": 22,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "BXD8V",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-04-02T19:22:26.493Z",
+      "lastUpdatedAtUtc": "2024-01-29T16:13:07.33Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 60,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "U"
+      ],
+      "colorPercentages": {
+        "white": 0.51,
+        "blue": 0.49,
+        "black": 0,
+        "red": 0,
+        "green": 0
+      },
+      "colorIdentity": [
+        "W",
+        "U"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.49,
+        "blue": 0.51,
+        "black": 0,
+        "red": 0,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "J96bp8",
+      "name": "High Roller",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/YzPTrCNNtUuO__8tMsvDqg",
+      "publicId": "YzPTrCNNtUuO__8tMsvDqg",
+      "likeCount": 0,
+      "viewCount": 23,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "WaOQy",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-05-10T16:33:01.67Z",
+      "lastUpdatedAtUtc": "2023-07-31T23:50:30.163Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 2,
+      "hubNames": [],
+      "colors": [
+        "B",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.49,
+        "red": 0.51,
+        "green": 0
+      },
+      "colorIdentity": [
+        "B",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0.51,
+        "red": 0.49,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "2zaNB1",
+      "name": "Cats!",
+      "hasPrimer": false,
+      "format": "commander",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/ryBvdOgMCEqkKKpbNVd7tQ",
+      "publicId": "ryBvdOgMCEqkKKpbNVd7tQ",
+      "likeCount": 1,
+      "viewCount": 24,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "kA6O0",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-03-10T20:39:52.853Z",
+      "lastUpdatedAtUtc": "2023-03-31T17:33:58.21Z",
+      "mainboardCount": 100,
+      "sideboardCount": 2,
+      "maybeboardCount": 67,
+      "hubNames": [],
+      "colors": [
+        "W",
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0.44,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0.56
+      },
+      "colorIdentity": [
+        "W",
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0.45,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 0.55
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "vr7M0w",
+      "name": "Pirate Nonsense",
+      "hasPrimer": false,
+      "format": "pauperEdh",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/m535aAlXCEaglO5HM0oqyQ",
+      "publicId": "m535aAlXCEaglO5HM0oqyQ",
+      "likeCount": 0,
+      "viewCount": 38,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "EJM65",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-01-29T16:22:15.083Z",
+      "lastUpdatedAtUtc": "2023-02-16T20:58:38.223Z",
+      "mainboardCount": 100,
+      "sideboardCount": 6,
+      "maybeboardCount": 18,
+      "hubNames": [],
+      "colors": [
+        "U",
+        "R"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0.58,
+        "black": 0,
+        "red": 0.42,
+        "green": 0
+      },
+      "colorIdentity": [
+        "U",
+        "R"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0.58,
+        "black": 0,
+        "red": 0.42,
+        "green": 0
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    },
+    {
+      "id": "XdwXAA",
+      "name": "Beast Tribal",
+      "hasPrimer": false,
+      "format": "pauperEdh",
+      "areCommentsEnabled": true,
+      "visibility": "public",
+      "publicUrl": "https://www.moxfield.com/decks/g5ejOeP2pE2hSvHw7kKdcg",
+      "publicId": "g5ejOeP2pE2hSvHw7kKdcg",
+      "likeCount": 0,
+      "viewCount": 34,
+      "commentCount": 0,
+      "sfwCommentCount": 0,
+      "isLegal": true,
+      "authorsCanEdit": false,
+      "isShared": false,
+      "mainCardId": "LDP0x",
+      "mainCardIdIsCardFace": false,
+      "mainCardIdIsBackFace": false,
+      "createdByUser": {
+        "userName": "jcbwlkr",
+        "displayName": "jcbwlkr",
+        "badges": [
+          "level-2"
+        ]
+      },
+      "authors": [
+        {
+          "userName": "jcbwlkr",
+          "displayName": "jcbwlkr",
+          "badges": [
+            "level-2"
+          ]
+        }
+      ],
+      "createdAtUtc": "2023-01-24T02:02:55.27Z",
+      "lastUpdatedAtUtc": "2023-02-10T14:54:15.083Z",
+      "mainboardCount": 100,
+      "sideboardCount": 0,
+      "maybeboardCount": 0,
+      "hubNames": [],
+      "colors": [
+        "G"
+      ],
+      "colorPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 1
+      },
+      "colorIdentity": [
+        "G"
+      ],
+      "colorIdentityPercentages": {
+        "white": 0,
+        "blue": 0,
+        "black": 0,
+        "red": 0,
+        "green": 1
+      },
+      "deckTier": 0,
+      "commanderTier": 0,
+      "deckTier1Count": 0,
+      "deckTier2Count": 0,
+      "deckTier3Count": 0,
+      "deckTier4Count": 0
+    }
+  ]
+}

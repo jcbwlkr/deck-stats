@@ -15,12 +15,16 @@ import (
 	"github.com/jcbwlkr/deck-stats/internal/services"
 )
 
-func TestClientListMyDecks(t *testing.T) {
+func TestClientListDecks(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		filename := ""
 		switch r.URL.Path {
-		case "/v3/decks":
-			filename = "testdata/decks.json"
+		case "/v2/users/jcbwlkr/decks":
+			if r.URL.Query().Get("pageNumber") == "1" {
+				filename = "testdata/decks-page-01.json"
+			} else {
+				filename = "testdata/decks-page-02.json"
+			}
 		case "/v3/decks/all/CZ0EOEAF0Ue1wZQRUNARZw":
 			filename = "testdata/deck-vial-smasher.json"
 		case "/v3/decks/all/H7Es1cn9y0qJVkT8_2A-Zw":
@@ -51,17 +55,17 @@ func TestClientListMyDecks(t *testing.T) {
 
 	ctx := context.Background()
 
-	deckList, err := client.ListMyDecks(ctx, "abc123")
+	deckList, err := client.ListDecks(ctx, "jcbwlkr")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if got, want := len(deckList), 153; got != want {
+	if got, want := len(deckList), 30; got != want {
 		t.Fatalf("should have %d decks but got %d", want, got)
 	}
 
 	for i := range deckList {
-		err := client.AddDeckDetails(ctx, "abc123", &deckList[i])
+		err := client.AddDeckDetails(ctx, &deckList[i])
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -74,19 +78,15 @@ func TestClientListMyDecks(t *testing.T) {
 		ServiceID:     "CZ0EOEAF0Ue1wZQRUNARZw",
 		URL:           "https://www.moxfield.com/decks/CZ0EOEAF0Ue1wZQRUNARZw",
 		ColorIdentity: magic.Grixis,
-		Folder: magic.Folder{
-			ID:   "RplO8",
-			Name: "02 - Decks I Am Building",
-		},
 		Leaders: magic.Leaders{
 			Commanders: []magic.Card{
 				{
-					ID:   "714c3a1f-7b30-4ed8-8f38-6176758741fb",
-					Name: "Sakashima of a Thousand Faces",
-				},
-				{
 					ID:   "4e439cd0-5ba1-45af-a868-f408e0a50465",
 					Name: "Vial Smasher the Fierce",
+				},
+				{
+					ID:   "714c3a1f-7b30-4ed8-8f38-6176758741fb",
+					Name: "Sakashima of a Thousand Faces",
 				},
 			},
 		},
@@ -94,10 +94,10 @@ func TestClientListMyDecks(t *testing.T) {
 			{Name: "Burn", Description: "A deck that focuses on dealing direct damage to an opponent."},
 			{Name: "Clones", Description: "A deck focusing on clone effects, or the ability to copy another creature."},
 		},
-		UpdatedAt: parseUTC("2024-11-23T23:03:51.243Z"),
+		UpdatedAt: parseUTC("2024-11-30T21:41:45.337Z"),
 	}
-	if diff := cmp.Diff(vialSmasher, deckList[0]); diff != "" {
-		t.Errorf("first response should be vial smasher but was:\n%s", diff)
+	if diff := cmp.Diff(vialSmasher, deckList[1]); diff != "" {
+		t.Errorf("second response should be vial smasher but was:\n%s", diff)
 	}
 
 	cats := magic.Deck{
@@ -107,10 +107,6 @@ func TestClientListMyDecks(t *testing.T) {
 		ServiceID:     "ryBvdOgMCEqkKKpbNVd7tQ",
 		URL:           "https://www.moxfield.com/decks/ryBvdOgMCEqkKKpbNVd7tQ",
 		ColorIdentity: magic.Selesnya,
-		Folder: magic.Folder{
-			ID:   "eX0KK",
-			Name: "015 - Decks I Am Redoing",
-		},
 		Leaders: magic.Leaders{
 			Commanders: []magic.Card{
 				{
@@ -126,7 +122,7 @@ func TestClientListMyDecks(t *testing.T) {
 		Archetypes: []magic.Archetype{},
 		UpdatedAt:  parseUTC("2023-03-31T17:33:58.21Z"),
 	}
-	if diff := cmp.Diff(cats, deckList[23]); diff != "" {
+	if diff := cmp.Diff(cats, deckList[22]); diff != "" {
 		t.Errorf("second to last response should be Arahbo but was:\n%s", diff)
 	}
 
@@ -137,10 +133,6 @@ func TestClientListMyDecks(t *testing.T) {
 		ServiceID:     "NM5x9FZ6cEGEEfx8RSU5mQ",
 		URL:           "https://www.moxfield.com/decks/NM5x9FZ6cEGEEfx8RSU5mQ",
 		ColorIdentity: magic.Simic,
-		Folder: magic.Folder{
-			ID:   "110e4",
-			Name: "05 - Deck Ideas",
-		},
 		Leaders: magic.Leaders{
 			Oathbreakers: []magic.Card{
 				{
@@ -156,10 +148,10 @@ func TestClientListMyDecks(t *testing.T) {
 			},
 		},
 		Archetypes: []magic.Archetype{},
-		UpdatedAt:  parseUTC("2023-10-07T04:16:22.107Z"),
+		UpdatedAt:  parseUTC("2024-11-30T21:42:01.61Z"),
 	}
-	if diff := cmp.Diff(poison, deckList[43]); diff != "" {
-		t.Errorf("second to last response should be poison but was:\n%s", diff)
+	if diff := cmp.Diff(poison, deckList[0]); diff != "" {
+		t.Errorf("first response should be poison but was:\n%s", diff)
 	}
 
 	blanka := magic.Deck{
@@ -169,10 +161,6 @@ func TestClientListMyDecks(t *testing.T) {
 		ServiceID:     "hJ0iLLhZ1ECZlQpyX8czKA",
 		URL:           "https://www.moxfield.com/decks/hJ0iLLhZ1ECZlQpyX8czKA",
 		ColorIdentity: magic.Gruul,
-		Folder: magic.Folder{
-			ID:   "pWK5O",
-			Name: "03 - Decks I Built But Do Not Own",
-		},
 		Leaders: magic.Leaders{
 			Commanders: []magic.Card{
 				{
@@ -182,10 +170,10 @@ func TestClientListMyDecks(t *testing.T) {
 			},
 		},
 		Archetypes: []magic.Archetype{},
-		UpdatedAt:  parseUTC("2024-10-20T16:55:06.397Z"),
+		UpdatedAt:  parseUTC("2024-11-30T21:41:34.123Z"),
 	}
-	if diff := cmp.Diff(blanka, deckList[7]); diff != "" {
-		t.Errorf("eighth response should be blanka but was:\n%s", diff)
+	if diff := cmp.Diff(blanka, deckList[2]); diff != "" {
+		t.Errorf("third response should be blanka but was:\n%s", diff)
 	}
 
 	winota := magic.Deck{
@@ -195,10 +183,6 @@ func TestClientListMyDecks(t *testing.T) {
 		ServiceID:     "H7Es1cn9y0qJVkT8_2A-Zw",
 		URL:           "https://www.moxfield.com/decks/H7Es1cn9y0qJVkT8_2A-Zw",
 		ColorIdentity: magic.Boros,
-		Folder: magic.Folder{
-			ID:   "zwmBw",
-			Name: "01 - Decks I Built and Own",
-		},
 		Leaders: magic.Leaders{
 			Commanders: []magic.Card{
 				{
@@ -210,8 +194,8 @@ func TestClientListMyDecks(t *testing.T) {
 		Archetypes: []magic.Archetype{},
 		UpdatedAt:  parseUTC("2024-10-20T13:45:59.85Z"),
 	}
-	if diff := cmp.Diff(winota, deckList[151]); diff != "" {
-		t.Errorf("second to last response should be winota but was:\n%s", diff)
+	if diff := cmp.Diff(winota, deckList[9]); diff != "" {
+		t.Errorf("tenth response should be winota but was:\n%s", diff)
 	}
 }
 

@@ -17,8 +17,8 @@ import (
 )
 
 type Moxfield interface {
-	ListMyDecks(ctx context.Context, token string) ([]Deck, error)
-	AddDeckDetails(ctx context.Context, token string, d *Deck) error
+	ListDecks(ctx context.Context, username string) ([]Deck, error)
+	AddDeckDetails(ctx context.Context, d *Deck) error
 }
 
 type Service struct {
@@ -115,7 +115,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 		return fmt.Errorf("could not list existing decks: %w", err)
 	}
 
-	moxfieldDecks, err := s.mc.ListMyDecks(ctx, account.Token)
+	moxfieldDecks, err := s.mc.ListDecks(ctx, account.Username)
 	if err != nil {
 		return fmt.Errorf("could not list moxfield decks: %w", err)
 	}
@@ -138,7 +138,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 			log.Info("new deck found")
 			moxDeck.UserID = user.ID
 			moxDeck.RefreshedAt = time.Now()
-			if err := s.mc.AddDeckDetails(ctx, account.Token, &moxDeck); err != nil {
+			if err := s.mc.AddDeckDetails(ctx, &moxDeck); err != nil {
 				return err
 			}
 			if err := s.InsertDeck(ctx, moxDeck); err != nil {
@@ -151,7 +151,7 @@ func (s *Service) refreshMoxfield(ctx context.Context, logger *slog.Logger, user
 			moxDeck.UserID = deck.UserID
 			moxDeck.RefreshedAt = time.Now()
 			deck.RefreshedAt = moxDeck.RefreshedAt
-			if err := s.mc.AddDeckDetails(ctx, account.Token, &moxDeck); err != nil {
+			if err := s.mc.AddDeckDetails(ctx, &moxDeck); err != nil {
 				return err
 			}
 			if err := s.UpdateDeck(ctx, moxDeck); err != nil {
@@ -189,7 +189,6 @@ func (s *Service) GetDecksForUser(ctx context.Context, user users.User) ([]Deck,
 		format,
 		url,
 		color_identity,
-		folder,
 		leaders,
 		archetypes,
 		updated_at,
@@ -214,7 +213,6 @@ func (s *Service) GetDecksForUserAndService(ctx context.Context, user users.User
 		format,
 		url,
 		color_identity,
-		folder,
 		leaders,
 		archetypes,
 		updated_at,
@@ -240,7 +238,6 @@ func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 		format,
 		url,
 		color_identity,
-		folder,
 		leaders,
 		archetypes,
 		updated_at,
@@ -254,7 +251,6 @@ func (s *Service) InsertDeck(ctx context.Context, deck Deck) error {
 		:format,
 		:url,
 		:color_identity,
-		:folder,
 		:leaders,
 		:archetypes,
 		:updated_at,
@@ -274,7 +270,6 @@ func (s *Service) UpdateDeck(ctx context.Context, deck Deck) error {
 		format = :format,
 		url = :url,
 		color_identity = :color_identity,
-		folder = :folder,
 		leaders = :leaders,
 		archetypes = :archetypes,
 		updated_at = :updated_at,

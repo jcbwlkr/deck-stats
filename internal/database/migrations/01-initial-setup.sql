@@ -13,7 +13,6 @@ CREATE TABLE user_accounts (
   user_id TEXT NOT NULL REFERENCES users(id),
   service TEXT NOT NULL,
   username TEXT NOT NULL,
-  token TEXT NOT NULL,
 
   refresh_started_at TIMESTAMP DEFAULT NULL,
   refresh_active_at TIMESTAMP DEFAULT NULL,
@@ -30,7 +29,6 @@ CREATE TABLE decks (
   format TEXT NOT NULL,
   url TEXT NOT NULL,
   color_identity TEXT[] NOT NULL,
-  folder JSONB NOT NULL DEFAULT '{}',
   leaders JSONB NOT NULL DEFAULT '{}',
   archetypes JSONB NOT NULL DEFAULT '[]',
 

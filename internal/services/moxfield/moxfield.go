@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
+	"strconv"
 	"strings"
 	"time"
 
@@ -42,63 +44,67 @@ func NewClient(userAgent string, sleep time.Duration) *Client {
 	}
 }
 
-func (c *Client) ListMyDecks(ctx context.Context, token string) ([]magic.Deck, error) {
-	url := fmt.Sprintf("%s/v3/decks", c.url)
+func (c *Client) ListDecks(ctx context.Context, username string) ([]magic.Deck, error) {
+	URL := fmt.Sprintf("%s/v2/users/%s/decks", c.url, username)
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-	if err != nil {
-		return nil, err
-	}
-	req.Header.Add("Authorization", "Bearer "+token)
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("User-Agent", c.userAgent)
+	decks := make([]magic.Deck, 0)
+	more := true
 
-	resp, err := c.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
+	for page := 1; more; page++ {
 
-	if resp.StatusCode != http.StatusOK {
-		//b, _ := io.ReadAll(resp.Body)
-		//fmt.Println(string(b[0:min(512, len(b)-1)]))
-		return nil, fmt.Errorf("moxfield: api status %s", resp.Status)
-	}
+		req, err := http.NewRequestWithContext(ctx, http.MethodGet, URL, nil)
+		if err != nil {
+			return nil, err
+		}
+		req.Header.Add("Accept", "application/json")
+		req.Header.Add("User-Agent", c.userAgent)
+		q := url.Values{}
+		q.Add("pageNumber", strconv.Itoa(page))
+		req.URL.RawQuery = q.Encode()
 
-	var data struct {
-		Decks []deckListDeck `json:"decks"`
-	}
+		resp, err := c.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+		defer resp.Body.Close()
 
-	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
-		return nil, err
-	}
-
-	decks := make([]magic.Deck, 0, len(data.Decks))
-	for _, deck := range data.Decks {
-		d := magic.Deck{
-			Name:      deck.Name,
-			Format:    deck.Format,
-			Service:   services.Moxfield,
-			ServiceID: deck.PublicID,
-			URL:       deck.PublicURL,
-			Folder: magic.Folder{
-				ID:   deck.Folder.ID,
-				Name: deck.Folder.Name,
-			},
-			UpdatedAt: deck.LastUpdatedAtUtc,
+		if resp.StatusCode != http.StatusOK {
+			return nil, fmt.Errorf("moxfield: api status %s", resp.Status)
 		}
 
-		for _, c := range deck.ColorIdentity {
-			d.ColorIdentity = append(d.ColorIdentity, magic.Color(strings.ToLower(c)))
+		var data struct {
+			TotalPages int            `json:"totalPages"`
+			Decks      []deckListDeck `json:"data"`
 		}
 
-		decks = append(decks, d)
+		if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
+			return nil, err
+		}
+
+		more = page < data.TotalPages
+
+		for _, deck := range data.Decks {
+			d := magic.Deck{
+				Name:      deck.Name,
+				Format:    deck.Format,
+				Service:   services.Moxfield,
+				ServiceID: deck.PublicID,
+				URL:       deck.PublicURL,
+				UpdatedAt: deck.LastUpdatedAtUtc,
+			}
+
+			for _, c := range deck.ColorIdentity {
+				d.ColorIdentity = append(d.ColorIdentity, magic.Color(strings.ToLower(c)))
+			}
+
+			decks = append(decks, d)
+		}
 	}
 
 	return decks, nil
 }
 
-func (c *Client) AddDeckDetails(ctx context.Context, token string, d *magic.Deck) error {
+func (c *Client) AddDeckDetails(ctx context.Context, d *magic.Deck) error {
 
 	// Block until we have permission to call or our context is canceled.
 	select {
@@ -112,7 +118,6 @@ func (c *Client) AddDeckDetails(ctx context.Context, token string, d *magic.Deck
 	if err != nil {
 		return err
 	}
-	req.Header.Add("Authorization", "Bearer "+token)
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("User-Agent", c.userAgent)
 
@@ -206,11 +211,7 @@ type deckListDeck struct {
 	SideboardCount   int       `json:"sideboardCount"`
 	MaybeboardCount  int       `json:"maybeboardCount"`
 	HubNames         []any     `json:"hubNames"`
-	Folder           struct {
-		ID   string `json:"id"`
-		Name string `json:"name"`
-	} `json:"folder"`
-	Colors           []string `json:"colors"`
+	Colors           []string  `json:"colors"`
 	ColorPercentages struct {
 		White float64 `json:"white"`
 		Blue  float64 `json:"blue"`

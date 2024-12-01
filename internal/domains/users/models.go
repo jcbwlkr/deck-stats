@@ -29,7 +29,6 @@ type Account struct {
 	ID       string `db:"id" json:"id"`
 	UserID   string `db:"user_id" json:"-"`
 	Service  string `db:"service" json:"service"`
-	Token    string `db:"token" json:"-"`
 	Username string `db:"username" json:"username"`
 
 	RefreshStartedAt   *time.Time `db:"refresh_started_at" json:"refresh_started_at"`
@@ -51,6 +50,5 @@ type LoginUser struct {
 
 type NewAccount struct {
 	Service  string `json:"service"`
-	Token    string `json:"token"`
 	Username string `json:"username"`
 }
